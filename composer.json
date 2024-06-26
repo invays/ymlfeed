@@ -1,0 +1,27 @@
+{
+    "name": "invays/ymlfeed",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Invays\\Ymlfeed\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Invays\\Ymlfeed\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Arindam Paul"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0"
+    }
+}
