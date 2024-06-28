@@ -20,7 +20,7 @@ class Fabric
     {
 
         $this->setting = $setting instanceof Setting ? $setting : new Setting();
-        $this->feed_file = $setting->getFeedFile();
+        $this->feed_file = $setting->getOutputFile();
         $this->writer = new \XMLWriter();
         $this->writer->openURI($this->feed_file);
     }
@@ -150,17 +150,17 @@ class Fabric
 
                 // store
                 $this->writer->startElement('store');
-                $this->writer->text($offer->getStore());
+                $this->writer->text(($offer->getStore()) ? 'true' : 'false');
                 $this->writer->fullEndElement();
 
                 // pickup
                 $this->writer->startElement('pickup');
-                $this->writer->text($offer->getPickup());
+                $this->writer->text(($offer->getPickup() ? 'true' : 'false'));
                 $this->writer->fullEndElement();
 
                 // delivery
                 $this->writer->startElement('delivery');
-                $this->writer->text($offer->getDelivery());
+                $this->writer->text(($offer->getDelivery()) ? 'true' : 'false');
                 $this->writer->fullEndElement();
 
                 // dimensions
