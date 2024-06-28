@@ -30,19 +30,17 @@ class Fabric
      *
      * @return void
      */
-    public function run(object $shop, array $currencies, array $categories, array $offers): void
+    public function run(object $shop, array $currencies, array $categories, array $offers, array|null $sets = null): void
     {
         $this->addHeader();
         $this->addShop($shop);
         $this->addCurrencies($currencies);
         $this->addCategories($categories);
+        if ($sets) {
+            $this->addSets($sets);
+        }
         $this->addOffers($offers);
         $this->addFooter();
-    }
-
-    public function run_test(): void
-    {
-        $this->addHeader();
     }
 
     protected function addHeader(): void
@@ -109,6 +107,28 @@ class Fabric
             $this->writer->startElement('currency');
             $this->writer->writeAttribute('id', $currency->getId());
             $this->writer->writeAttribute('rate', $currency->getRate());
+            $this->writer->endElement();
+        }
+
+        $this->writer->fullEndElement();
+    }
+
+    protected function addSets(array $sets): void   {
+        $this->writer->startElement('sets');
+
+        foreach ($sets as $set) {
+            $this->writer->startElement('set');
+
+            $this->writer->writeAttribute('id', $set->getId());
+
+            $this->writer->startElement('name');
+            $this->writer->text($set->getName());
+            $this->writer->fullEndElement();
+
+            $this->writer->startElement('url');
+            $this->writer->text($set->getUrl());
+            $this->writer->fullEndElement();
+
             $this->writer->endElement();
         }
 

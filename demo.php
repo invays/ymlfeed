@@ -7,9 +7,12 @@ use Invays\Ymlfeed\Fabric;
 use Invays\Ymlfeed\Base\Shop;
 use Invays\Ymlfeed\Base\Category;
 use Invays\Ymlfeed\Base\Currency;
+use Invays\Ymlfeed\Base\Sets;
 use Invays\Ymlfeed\Base\Delivery\Delivery;
 use Invays\Ymlfeed\Base\Offer\OfferCustomTag;
 use Invays\Ymlfeed\Base\Offer\OfferSimple;
+use Invays\Ymlfeed\Base\Offer\OfferAuto;
+
 
 ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
@@ -17,7 +20,6 @@ error_reporting(E_ALL);
 
 class Demo
 {
-
     public function run()
     {
         $setting = (new Setting())
@@ -53,7 +55,13 @@ class Demo
             ->setCustomAttributes('cid', 233)
         ;
 
-        $offers[] = (new OfferSimple())
+        $sets[] = (new Sets())
+            ->setId('s1')
+            ->setUrl('http://my_url')
+            ->setName('Set 1');
+
+
+        $offers[] = (new OfferAuto())
             ->setId(2)
             ->setType('simplefff')
             ->setAvailable(false)
@@ -122,7 +130,8 @@ class Demo
             $shop,
             $currencies,
             $categories,
-            $offers
+            $offers,
+            $sets
         );
 
     }
