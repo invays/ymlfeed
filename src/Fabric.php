@@ -168,6 +168,16 @@ class Fabric
                 $this->writer->text($offer->getUrl());
                 $this->writer->fullEndElement();
 
+                // categorory_id
+                $this->writer->startElement('categoryId');
+                $this->writer->text($offer->getCategoryId());
+                $this->writer->fullEndElement();
+
+                // currency_id
+                $this->writer->startElement('currencyId');
+                $this->writer->text($offer->getCurrencyId());
+                $this->writer->fullEndElement();
+
                 // store
                 $this->writer->startElement('store');
                 $this->writer->text(($offer->getStore()) ? 'true' : 'false');
