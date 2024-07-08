@@ -143,13 +143,13 @@ abstract class OfferAbstractClass implements OfferInterface
         return $this->price;
     }
 
-    public function setOldPrice(float|int $old_price): object
+    public function setOldPrice(float|int|null $old_price): object
     {
         $this->old_price = $old_price;
         return $this;
     }
 
-    public function getOldPrice(): float|int
+    public function getOldPrice(): float|int|null
     {
         return $this->old_price;
     }
