@@ -163,6 +163,22 @@ class Fabric
                 }
                 $this->writer->fullEndElement();
 
+                // Price
+                if ($offer->getPrice() !== null) {
+                    $this->writer->startElement('price');
+                    $this->writer->text($offer->getPrice());
+                    $this->writer->fullEndElement();
+                }
+
+
+                // Old price
+                if ($offer->getOldPrice() !== null) {
+                    $this->writer->startElement('oldprice');
+                    $this->writer->text($offer->getOldPrice());
+                    $this->writer->fullEndElement();
+                }
+
+
                 // Url 
                 $this->writer->startElement('url');
                 $this->writer->text($offer->getUrl());
