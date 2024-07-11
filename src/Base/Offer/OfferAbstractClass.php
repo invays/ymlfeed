@@ -222,7 +222,7 @@ abstract class OfferAbstractClass implements OfferInterface
 
     public function setPictures(array $pictures): object
     {
-        $this->pictures[] = $pictures;
+        $this->pictures = $pictures;
         return $this;
     }
 
@@ -297,8 +297,5 @@ abstract class OfferAbstractClass implements OfferInterface
     {
         return $this->custom_tags;
     }
-
-
-
 
 }

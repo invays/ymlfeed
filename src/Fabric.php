@@ -236,6 +236,14 @@ class Fabric
                     $this->addCustomTags($offer);
                 }
 
+                if ($offer->getPictures()) {
+                    foreach ($offer->getPictures() as $name => $value) {
+                        $this->writer->startElement('picture');
+                        $this->writer->text($value);
+                        $this->writer->fullEndElement();
+                    }
+                }
+
 
                 $this->writer->fullEndElement();
             }
