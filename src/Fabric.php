@@ -196,19 +196,25 @@ class Fabric
                 $this->writer->fullEndElement();
 
                 // store
-                $this->writer->startElement('store');
-                $this->writer->text(($offer->getStore()) ? 'true' : 'false');
-                $this->writer->fullEndElement();
+                if ($offer->getStore()) {
+                    $this->writer->startElement('store');
+                    $this->writer->text(($offer->getStore()) ? 'true' : 'false');
+                    $this->writer->fullEndElement();
+                }
 
                 // pickup
-                $this->writer->startElement('pickup');
-                $this->writer->text(($offer->getPickup() ? 'true' : 'false'));
-                $this->writer->fullEndElement();
+                if ($offer->getPickup()) {
+                    $this->writer->startElement('pickup');
+                    $this->writer->text(($offer->getPickup() ? 'true' : 'false'));
+                    $this->writer->fullEndElement();
+                }
 
                 // delivery
-                $this->writer->startElement('delivery');
-                $this->writer->text(($offer->getDelivery()) ? 'true' : 'false');
-                $this->writer->fullEndElement();
+                if ($offer->getDelivery()) {
+                    $this->writer->startElement('delivery');
+                    $this->writer->text(($offer->getDelivery()) ? 'true' : 'false');
+                    $this->writer->fullEndElement();
+                }
 
                 // dimensions
                 if ($offer->getDimensions() !== null) {
