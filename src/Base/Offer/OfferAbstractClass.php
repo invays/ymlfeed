@@ -176,35 +176,35 @@ abstract class OfferAbstractClass implements OfferInterface
         return $this->currency_id;
     }
 
-    public function setStore(bool $store): object
+    public function setStore(bool $store): ?object
     {
         $this->store = $store;
         return $this;
     }
 
-    public function getStore(): bool
+    public function getStore(): ?bool
     {
         return $this->store;
     }
 
-    public function setPickup(bool $pickup): object
+    public function setPickup(bool $pickup): ?object
     {
         $this->pickup = $pickup;
         return $this;
     }
 
-    public function getPickup(): bool
+    public function getPickup(): ?bool
     {
         return $this->pickup;
     }
 
-    public function setDelivery(bool $delivery): object
+    public function setDelivery(bool $delivery): ?object
     {
         $this->delivery = $delivery;
         return $this;
     }
 
-    public function getDelivery(): bool
+    public function getDelivery(): ?bool
     {
         return $this->delivery;
     }
