@@ -142,7 +142,7 @@ class Fabric
             foreach ($offers as $offer) {
                 $this->writer->startElement('offer');
                 $this->writer->writeAttribute('id', $offer->getId());
-                $this->writer->writeAttribute('available', $offer->getAvailable());
+                $this->writer->writeAttribute('available', ($offer->getAvailable()) ? true : false);
 
                 if ($offer->getCustomOfferAttributes()) {
                     foreach ($offer->getCustomOfferAttributes() as $name => $value) {
